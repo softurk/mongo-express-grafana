@@ -1,0 +1,34 @@
+server:
+  error:
+    include-message: always
+spring:
+  data:
+    mongodb:
+      uri: mongodb://192.168.99.100:27000/log
+      auto-index-creation: true
+      authentication-database: admin
+      username: techtutor
+      password: password
+      database: stores
+      port: 27017
+      host: localhost
+  kafka:
+    consumer:
+      bootstrap-servers: 192.168.99.100:9092
+      group-id: group_id
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: 192.168.99.100:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
