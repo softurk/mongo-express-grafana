@@ -46,7 +46,6 @@ services:
   mongodb_container:
     image: mongo:latest
     environment:
-      #This user is created in the admin authentication database and given the role of root, which is a "superuser" role.
       - MONGO_INITDB_ROOT_USERNAME=techtutor
       - MONGO_INITDB_ROOT_PASSWORD=password
     ports:
